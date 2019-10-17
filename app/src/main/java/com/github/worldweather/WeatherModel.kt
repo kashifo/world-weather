@@ -16,4 +16,9 @@ public class WeatherModel {
     var humidity:String? = null
     var speed:String? = null
 
+    override fun toString(): String {
+        return "name=$name, id=$id, type=$type, temp=$temp, temp_min=$temp_min, temp_max=$temp_max, pressure=$pressure, humidity=$humidity, speed=$speed"
+    }
+
+
 }

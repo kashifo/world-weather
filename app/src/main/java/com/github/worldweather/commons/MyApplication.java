@@ -1,6 +1,8 @@
-package com.github.worldweather;
+package com.github.worldweather.commons;
 
 import android.app.Application;
+
+import com.github.worldweather.BuildConfig;
 
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;

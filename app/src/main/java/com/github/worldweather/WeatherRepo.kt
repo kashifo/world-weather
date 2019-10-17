@@ -2,9 +2,9 @@ package com.github.latestexperiments.world_weather
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.github.worldweather.ApiInterface
-import com.github.worldweather.Constants
-import com.github.worldweather.MyApplication
+import com.github.worldweather.commons.Constants
+import com.github.worldweather.commons.MyApplication
+import com.github.worldweather.commons.RetrofitInterface
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -20,9 +20,9 @@ public class WeatherRepo {
     var mutableData: MutableLiveData<WeatherModel> = MutableLiveData()
 
     fun fetchHolidays(city: String): MutableLiveData<WeatherModel> {
-        val apiInterface = MyApplication.getRetrofitClient().create(ApiInterface::class.java)
+        val retrofitInterface = MyApplication.getRetrofitClient().create(RetrofitInterface::class.java)
 
-        apiInterface.fetchWeather(city, Constants.KEY_WEATHER_API).enqueue(object : Callback<String> {
+        retrofitInterface.fetchWeatherOfCity(city, Constants.KEY_WEATHER_API).enqueue(object : Callback<String> {
 
             override fun onFailure(call: Call<String>, t: Throwable) {
                 Log.e(TAG, "onFailure call=" + call.toString())
